@@ -21,16 +21,15 @@ if(!isset($_SESSION['username'])){
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-primary border-bottom border-secondary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand shadow py-2" id="navbar" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <h4 class="text-white align-middle">
+        SIP Phone Management
+      </h4>
       <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-          <a class="nav-link px-3" href="logout.php">Sign out</a>
+        <div class="row nav-item text-nowrap text-white pe-3">
+          <a class="col nav-link px-2 text-white" href="#"><i class="bi-person-circle pe-1"></i>Admin</a>
+          <a class="col nav-link px-2 text-white" href="logout.php">Sign out</a>
         </div>
       </div>
     </div>
@@ -38,67 +37,90 @@ if(!isset($_SESSION['username'])){
   <!-- End Navbar -->
 
   <!-- Nav Tabs -->
-  <div class="container-fluid">
-    <div class="row pb-2 mb-3">
-      <ul class="nav nav-tabs bg-info ps-4 border-bottom border-secondary shadow">
-        <li class="nav-item">
-          <a class="nav-link text-black
-            <?php if(isset($_GET['page']) && $_GET['page'] == 'home' || $_GET['page'] == 'add' || $_GET['page'] == 'edit'){echo 'active';} ?>"
-            aria-current="page" 
-            href="index.php?page=home">
-            <i class="bi bi-list pe-2"style="font-size: 1rem; color: black;"></i>List
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-black
-            <?php if(isset($_GET['page']) && $_GET['page'] == 'contact'){echo 'active';} ?>"
-            aria-current="page"
-            href="index.php?page=contact">
-            <i class="bi bi-person-fill pe-2"style="font-size: 1rem; color: black;"></i>User
-          </a>
-        </li>
-      </ul>
+  <div class="container-fluid" id="content">
+    <div class="row flex-nowrap">
+      <div class="col-auto" id="sidebar">
+        <div class="d-flex flex-column align-items-center pt-3 text-white min-vh-100">
+            <ul class="nav nav-pills flex-column align-items-center px-0" >
+                <li class="nav-item mb-2">
+                    <a 
+                      class="nav-link d-grid align-middle py-0 pb-1 px-2
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'home' || $_GET['page'] == 'add' || $_GET['page'] == 'edit'){echo 'active';} ?>"
+                      href="index.php?page=home"
+                      style="background-color: 
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'home' || $_GET['page'] == 'add' || $_GET['page'] == 'edit'){echo '#8e136b;';}?>">
+                      <i class="fs-3 text-center bi-filetype-xml" style="color: white"></i>
+                      <span class="text-center text-white">XML Generator</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a  
+                      class="nav-link d-grid align-middle py-0 pb-1 px-4
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'user'){echo 'active';} ?>"
+                      href="index.php?page=user"
+                      style="background-color: 
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'user'){echo '#8e136b;';}?>">
+                      <i class="fs-3 text-center bi-person" style="color: white"></i>
+                      <span class="px-3 text-center text-white">Users</span> </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a 
+                      class="nav-link d-grid align-middle py-0 pb-1 px-3
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location'){echo 'active';} ?>"
+                      href="index.php?page=location"
+                      style="background-color: 
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location'){echo '#8e136b;';}?>">
+                      <i class="fs-3 text-center bi-buildings" style="color: white"></i>
+                      <span class="px-2 text-center text-white">Locations</span> </a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <main class="col-11 mt-4 mx-auto">
+        <?php
+        if (isset($_GET['page'])) {
+          $page = $_GET['page'];
+          switch ($page) {
+            case 'home':
+              include "home.php";
+              break;
+            case 'user':
+              include "user.php";
+              break;
+            case 'location':
+              include "location.php";
+              break;
+            case 'add':
+              include "add.php";
+              break;
+            case 'edit':
+              include "edit.php";
+              break;
+            default:
+              include "home.php";
+              break;
+          }
+        } else {
+            include "home.php";
+        }
+        ?>
+      </main>
+      <!-- End Main Content -->
     </div>
   </div>
-  <!--  -->
-
-  <!--  -->
-  <main class="container-fluid">
-    <?php
-    if (isset($_GET['page'])) {
-      $page = $_GET['page'];
-      switch ($page) {
-        case 'home':
-          include "home.php";
-          break;
-        case 'contact':
-          include "contact.php";
-          break;
-        case 'user':
-          include "user.php";
-          break;
-        case 'add':
-          include "add.php";
-          break;
-        case 'edit':
-          include "edit.php";
-          break;
-        case 'list':
-          include "product-list.php";
-          break;
-        default:
-          include "home.php";
-          break;
-      }
-    } else {
-        include "home.php";
-    }
-    ?>
-  </main>
-  <!--  -->
+  <!-- End Nav Tabs -->
 
   <!-- Bootstrap JS -->
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/bootstrap/js/popper.min.js"></script>
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  </script>
+  <!-- Bootstrap JS -->
 </body>
 
 </html>

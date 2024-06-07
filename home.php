@@ -1,38 +1,43 @@
 <div class="container-fluid">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-4 border-secondary border-bottom">
+    <h3>XML Generator</h3>
+  </div>
+</div>
+<div class="container-fluid">
   <div class="card">
-    <div class="card-header">
-      <div class="row justify-content-between">
-        <div class="col-1 d-grid">
-          <a href="index.php?page=add" type="button" class="btn btn-primary">
+    <div class="card-header bg-secondary bg-opacity-25">
+      <div class="row py-2 justify-content-between">
+        <div class="col-auto d-grid">
+          <a href="index.php?page=add" type="button" class="btn" id="create-btn">
           <i class="bi bi-plus-lg pe-2"></i>Create</a>
         </div>
         <div class="col-3">
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark" type="submit">Search</button>
+            <button class="btn" type="submit" id="search-btn">Search</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="card-body">
+    <div class="card-body bg-secondary bg-opacity-10">
       <div class="row row-cols-auto">
         <div class="mt-3">
-          <table class="table table-bordered table-striped">
-            <thead class="table-primary">
-              <tr>
+          <table class="table table-bordered">
+            <thead class="table-dark text-center">
+              <tr >
                 <th scope="col">#</th>
                 <th scope="col">seq</th>
-                <th scope="col">phone description</th>
-                <th scope="col">phone number</th>
-                <th scope="col">mac address</th>
-                <th scope="col">phone type</th>
-                <th scope="col">location</th>
-                <th scope="col">pbax server</th>
-                <th scope="col">insert by</th>
-                <th scope="col">insert date</th>
-                <th scope="col">update by</th>
-                <th scope="col">update date</th>
-                <th scope="col">generate xml</th>
+                <th scope="col">Phone Description</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">MAC Address</th>
+                <th scope="col">Phone Type</th>
+                <th scope="col">Location</th>
+                <th scope="col">PBAX Server</th>
+                <th scope="col">Insert By</th>
+                <th scope="col">Insert Date</th>
+                <th scope="col">Update By</th>
+                <th scope="col">Update Date</th>
+                <th scope="col">Generate XML</th>
               </tr>
             </thead>
             <tbody>
@@ -41,36 +46,63 @@
                     <i class="bi bi-pencil-square" style="color: black;"></i>
                   </a></th>
                 <td>625</td>
-                <td>m3 phone</td>
+                <td>M3 Phone</td>
                 <td>4340</td>
-                <td>f07816d171</td>
+                <td>F07816D171</td>
                 <td>7811</td>
-                <td>m3</td>
-                <td>m5(172.17.0)</td>
-                <td>yasban</td>
-                <td>03-mar-2023 08:39am</td>
+                <td>M3</td>
+                <td>M5(172.17.0)</td>
+                <td>YASBAN</td>
+                <td>03-MAR-2023 08:39AM</td>
                 <td>-</td>
                 <td>-</td>
-                <td><i class="bi bi-download"></i></td>
+                <td style="text-align: center">
+                  <a href="#" type="button">
+                    <i class="bi-download" style="color: black;"></i>
+                  </a>
+                </td>
               </tr>
               <tr>
-                <th scope="row">
-                  <a href="index.php?page=edit" type="button">
+                <th scope="row"><a href="index.php?page=edit" type="button">
                     <i class="bi bi-pencil-square" style="color: black;"></i>
+                  </a></th>
+                <td>625</td>
+                <td>M3 Phone</td>
+                <td>4340</td>
+                <td>F07816D171</td>
+                <td>7811</td>
+                <td>M3</td>
+                <td>M5(172.17.0)</td>
+                <td>YASBAN</td>
+                <td>03-MAR-2023 08:39AM</td>
+                <td>-</td>
+                <td>-</td>
+                <td style="text-align: center">
+                  <a href="#" type="button">
+                    <i class="bi-download" style="color: black;"></i>
                   </a>
-                </th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="index.php?page=edit" type="button">
+                    <i class="bi bi-pencil-square" style="color: black;"></i>
+                  </a></th>
+                <td>625</td>
+                <td>M3 Phone</td>
+                <td>4340</td>
+                <td>F07816D171</td>
+                <td>7811</td>
+                <td>M3</td>
+                <td>M5(172.17.0)</td>
+                <td>YASBAN</td>
+                <td>03-MAR-2023 08:39AM</td>
                 <td>-</td>
                 <td>-</td>
-                <td><i class="bi bi-download"></i></td>
+                <td style="text-align: center">
+                  <a href="#" type="button">
+                    <i class="bi-download" style="color: black;"></i>
+                  </a>
+                </td>
               </tr>
             </tbody>
           </table>
