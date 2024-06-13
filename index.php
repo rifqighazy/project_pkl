@@ -17,13 +17,16 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   <!-- ICON -->
   <link rel="stylesheet" href="assets/icon/bootstrap-icons.min.css">
+  <!--  -->
+  <link rel="stylesheet" href="/DataTables/datatables.css" />
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand shadow py-2" id="navbar" data-bs-theme="dark">
     <div class="container-fluid">
-      <h4 class="text-white align-middle">
+      <h4 class="text-white align-middle pt-2">
+      <img src="assets/image/pt-kaltim-prima-coal-logo.png" style="width: 70px" class="me-2 pb-1">
         SIP Phone Management
       </h4>
       <div class="navbar-nav">
@@ -66,10 +69,10 @@ if(!isset($_SESSION['username'])){
                 <li class="nav-item mb-2">
                     <a 
                       class="nav-link d-grid align-middle py-0 pb-1 px-3
-                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location'){echo 'active';} ?>"
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location' || $_GET['page'] == 'add-location' || $_GET['page'] == 'edit-location'){echo 'active';} ?>"
                       href="index.php?page=location"
                       style="background-color: 
-                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location'){echo '#8e136b;';}?>">
+                      <?php if(isset($_GET['page']) && $_GET['page'] == 'location' || $_GET['page'] == 'add-location' || $_GET['page'] == 'edit-location'){echo '#8e136b;';}?>">
                       <i class="fs-3 text-center bi-buildings" style="color: white"></i>
                       <span class="px-2 text-center text-white">Locations</span> </a>
                 </li>
@@ -78,7 +81,7 @@ if(!isset($_SESSION['username'])){
         </div>
       </div>
       <!-- Main Content -->
-      <main class="col-11 mt-4 mx-auto">
+      <main class="col-11 mt-4 mx-auto min-vh-100">
         <?php
         if (isset($_GET['page'])) {
           $page = $_GET['page'];
@@ -97,6 +100,12 @@ if(!isset($_SESSION['username'])){
               break;
             case 'edit':
               include "edit.php";
+              break;
+            case 'add-location':
+              include "add-location.php";
+              break;
+            case 'edit-location':
+              include "edit-location.php";
               break;
             default:
               include "home.php";
@@ -119,6 +128,16 @@ if(!isset($_SESSION['username'])){
   <script>
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  </script>
+  <script>
+    $(document).ready(function() {
+    var table = $('#tabel-data').DataTable( {
+    scrollY: "300px",
+    scrollX: true,
+    scrollCollapse: true
+    
+    } );
+    } );
   </script>
   <!-- Bootstrap JS -->
 </body>

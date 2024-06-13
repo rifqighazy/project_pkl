@@ -46,10 +46,8 @@
                                     id="Password"
                                     placeholder="Password">
                             </div>
-                            <div class="card-footer">
-                                <div class="float-end pt-2">
-                                    <button type="submit" class="btn text-white" id="btn-login">Login</button>
-                                </div>
+                            <div class="float-end pt-2">
+                                <button type="submit" class="btn text-white" id="btn-login">Login</button>
                             </div>
                         </form>
                     </div>
